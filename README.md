@@ -1,6 +1,6 @@
 # DBDMinecraft [INCOMPLETE FOR THE MOMENT]
 
-Completion : <progress max="100" value="50" />
+Completion : <progress max="100" value="50"> </progress>
 
 ## [📖 Presentation 📖]
 
