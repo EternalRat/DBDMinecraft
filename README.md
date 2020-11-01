@@ -1,5 +1,7 @@
 # DBDMinecraft [INCOMPLETE FOR THE MOMENT]
 
+Completion : <progress max="100" value="50"> 50% </progress>
+
 ## [📖 Presentation 📖]
 
 A Plugin MC which make Minecraft looks like to Dead By Daylight.

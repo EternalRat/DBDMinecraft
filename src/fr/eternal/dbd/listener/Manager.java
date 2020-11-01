@@ -54,7 +54,7 @@ public class Manager extends JavaPlugin {
 		blocksEventPM.registerEvents(blocksEvent, this.main);
 		
 		/* Death event done when a player die by using a Listener */
-		Listener deathEvent = new OnDeathEvent(this);
+		Listener deathEvent = new OnDeathEvent(this.main);
 		PluginManager deathEventPM = getServer().getPluginManager();
 		deathEventPM.registerEvents(deathEvent, this.main);
 	}
