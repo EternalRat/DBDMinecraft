@@ -39,25 +39,28 @@ public class StartCommand implements CommandExecutor {
 	 */
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String msg, String[] args) {
-		if (main.getPlayers().size() < 3) {
+		if (this.main.getPlayers().size() < 3) {
 			Bukkit.broadcastMessage("You need to be atleast 3 for launching this game !");
 			return false;
 		}
-		main.setKiller(main.getPlayers().get((int)(Math.random() * main.getPlayers().size())));
-		Player p = main.getPlayers().get((int)(Math.random() * main.getPlayers().size()));
-		if (main.getKiller() == p) {
-			p = main.getPlayers().get((int)(Math.random() * main.getPlayers().size()));
-			main.setGuard(p);
+		this.main.setKiller(this.main.getPlayers().get((int)(Math.random() * this.main.getPlayers().size())));
+		Player p = this.main.getPlayers().get((int)(Math.random() * this.main.getPlayers().size()));
+		if (this.main.getKiller() == p) {
+			p = this.main.getPlayers().get((int)(Math.random() * this.main.getPlayers().size()));
+			this.main.setGuard(p);
 		} else {
-			main.setGuard(p);
+			this.main.setGuard(p);
 		}
-		for (Player pl : main.getPlayers()) {
-			if (pl == main.getKiller()) {
+		for (Player pl : this.main.getPlayers()) {
+			if (pl == this.main.getKiller()) {
+				pl.sendMessage("§4" + pl.getName() + " you are the killer !§r");
 				//TP Tueur + rest
-			} else if (pl == main.getGuard()) {
+			} else if (pl == this.main.getGuard()) {
+				pl.sendMessage("§9" + pl.getName() + " you are the guard !§r");
 				//TP Guard + rest
 			} else {
-				main.getSurvivantPlayers().add(pl);
+				this.main.getSurvivantPlayers().add(pl);
+				pl.sendMessage("§2" + pl.getName() + " you are a survivor !§r");
 				//TP Player + rest
 			}
 		}

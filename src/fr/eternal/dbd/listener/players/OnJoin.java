@@ -1,4 +1,4 @@
-package fr.eternal.dbd.listener;
+package fr.eternal.dbd.listener.players;
 
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
@@ -10,7 +10,6 @@ import org.bukkit.event.player.PlayerJoinEvent;
 
 import fr.eternal.dbd.GStates;
 import fr.eternal.dbd.DBDMinecraft;
-
 
 /**
  * Class which manage events done when someone join the server
@@ -51,16 +50,16 @@ public class OnJoin implements Listener {
 		player.setFoodLevel(20);
 		player.setHealth(20);
 		
-		if (!main.isState(GStates.WAITING)) {
+		if (!this.main.isState(GStates.WAITING)) {
 			player.setGameMode(GameMode.SPECTATOR);
 			player.sendMessage("The game already started.");
 			e.setJoinMessage(null);
 			return;
 		}
 		
-		if (!main.getPlayers().contains(player)) main.getPlayers().add(player);
+		if (!this.main.getPlayers().contains(player)) this.main.getPlayers().add(player);
 		player.setGameMode(GameMode.ADVENTURE);
-		e.setJoinMessage("§7[§cDEAD BY DAYLIGHT MINECRAFT VERSION§7]§r " + player.getName() + " has joined the game.");
+		Bukkit.broadcastMessage("§7[§cDEAD BY DAYLIGHT MINECRAFT VERSION§7]§r " + player.getName() + " has joined the game.");
 	}
 
 }

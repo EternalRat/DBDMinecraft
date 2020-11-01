@@ -1,4 +1,4 @@
-package fr.eternal.dbd.listener;
+package fr.eternal.dbd.listener.blocks;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

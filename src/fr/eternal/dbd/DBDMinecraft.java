@@ -10,8 +10,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.eternal.dbd.GStates;
 import fr.eternal.dbd.commands.StartCommand;
-import fr.eternal.dbd.listener.OnBlocksEvent;
-import fr.eternal.dbd.listener.OnJoin;
+import fr.eternal.dbd.listener.Manager;
+import fr.eternal.dbd.listener.blocks.OnBlocksEvent;
+import fr.eternal.dbd.listener.players.OnJoin;
 
 
 /**
@@ -52,20 +53,14 @@ public class DBDMinecraft extends JavaPlugin {
 		/* Console log to check if the plugin is loaded. */
 		System.out.println(this.getName() + " on!");
 		
-		/* Join event done by using a Listener */
-		Listener joinEvent = new OnJoin(this);
-		PluginManager joinEventPM = getServer().getPluginManager();
-		joinEventPM.registerEvents(joinEvent, this);
-		
-		/* Cancel event done on blocks by using a Listener */
-		Listener blocksEvent = new OnBlocksEvent();
-		PluginManager blocksEventPM = getServer().getPluginManager();
-		blocksEventPM.registerEvents(blocksEvent, this);
+		/* Listener manager */
+		Manager lManager = new Manager(this);
+		lManager.ListenerManager();
 		
 		/* Commands Manager */
 		getCommand("start").setExecutor(new StartCommand(this));
 	}
-	
+
 	/**
 	 * Off function
 	 */
