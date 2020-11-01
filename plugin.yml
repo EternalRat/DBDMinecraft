@@ -1,0 +1,7 @@
+name: DeadByDaylight
+version: 1.0
+author: EternalRat
+main: fr.eternal.dbd.DBDMinecraft
+commands:
+  start:
+    description: Launch the game if you're minimum 3
