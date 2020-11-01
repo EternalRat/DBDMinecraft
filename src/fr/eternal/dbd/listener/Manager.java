@@ -6,6 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.eternal.dbd.DBDMinecraft;
 import fr.eternal.dbd.listener.blocks.OnBlocksEvent;
+import fr.eternal.dbd.listener.players.OnDeathEvent;
 import fr.eternal.dbd.listener.players.OnJoin;
 import fr.eternal.dbd.listener.players.OnLeave;
 
@@ -51,6 +52,11 @@ public class Manager extends JavaPlugin {
 		Listener blocksEvent = new OnBlocksEvent();
 		PluginManager blocksEventPM = getServer().getPluginManager();
 		blocksEventPM.registerEvents(blocksEvent, this.main);
+		
+		/* Death event done when a player die by using a Listener */
+		Listener deathEvent = new OnDeathEvent(this);
+		PluginManager deathEventPM = getServer().getPluginManager();
+		deathEventPM.registerEvents(deathEvent, this.main);
 	}
 
 }
